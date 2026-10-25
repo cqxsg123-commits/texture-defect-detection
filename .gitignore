@@ -1,0 +1,25 @@
+# ---- 数据与模型产物（体积大，随项目运行可再生，不上传） ----
+defect_detection/data/
+defect_detection/checkpoints/
+defect_detection/results/
+
+# ---- 权重与缓存 ----
+*.pth
+*.ckpt
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ---- Office 临时文件 ----
+~$*
+
+# ---- 历史遗留：空嵌套仓库备份（原 defect_detection/.git，无任何提交） ----
+.git.bak/
+
+# ---- 非代码交付物（报告 / PPT / 计划书，仅上传源代码） ----
+*.docx
+*.pptx
+plan.txt
+ppt_figs_modules/
+.vscode/
+

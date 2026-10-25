@@ -1,0 +1,28 @@
+# ============================================================
+# 实验配置（计划书 4.3：固定数据集、预处理流水线、输入尺寸，严格控制变量）
+# ============================================================
+paths:
+  data_root: data/mvtec_anomaly_detection   # metal_nut 类别所在根目录（相对项目根）
+  checkpoint_dir: checkpoints               # 模型权重保存目录
+  results_dir: results                      # 指标表格 / 热力图输出目录
+  zip_path: D:/数据集/data.zip              # MVTec AD 完整压缩包（解压 metal_nut 子集用）
+
+dataset:
+  category: metal_nut
+  image_size: 256
+  batch_size: 32
+  num_workers: 4
+  seed: 42
+
+models:
+  patchcore:
+    layers: [conv3_3, conv4_3] # 多层融合（实验 5：全量记忆库下优于单层）
+    k: 1                       # 近邻数量（实验 5：k=1 最优）
+    coreset_ratio: 1.0         # 全量记忆库，不压缩（220 张小训练集 coreset 损失代表性）
+    stride: 1                  # patch 采样步长
+  cutpaste:
+    epochs: 50
+    lr: 0.01                    # 0.03 在 220 图小训练集上易震荡发散，0.01 稳定
+    patience: 8
+  padim:
+    backbone: vgg16            # 计划书：冻结预训练 VGG16

@@ -1,0 +1,30 @@
+# ============================================================
+# 基于纹理特征的工业缺陷检测系统 — 依赖清单
+# 安装方式见 README.md（torch/torchvision 需先从 cu124 源单独安装）
+# ============================================================
+
+# --- 深度学习框架（先执行：pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu124）---
+torch==2.5.1
+torchvision==0.20.1
+
+# --- Anomalib（PaDiM 对照模型）---
+anomalib==2.6.2
+
+# --- 特征检索 / 科学计算 / 图像处理 ---
+faiss-cpu>=1.8.0
+scikit-learn>=1.5.0
+opencv-python>=4.10.0
+scikit-image>=0.24.0
+numpy>=1.26,<3.0
+
+# --- 数据与可视化 ---
+pandas>=2.2.0
+tabulate>=0.9.0
+matplotlib>=3.8.0
+tqdm>=4.66.0
+pyyaml>=6.0
+
+# --- 交互界面 / Notebook ---
+gradio>=5.0.0
+jupyter>=1.0.0
+notebook>=7.0.0
